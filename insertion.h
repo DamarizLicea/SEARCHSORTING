@@ -22,12 +22,16 @@
 // @param size, the number of elements in the array.
 // =================================================================
 template <class T>
-void insertionSort(T *arr, int size) {
+int insertionSort(T *arr, int size) {
+	int paso=0;
+
 	for(int i = 1; i < size; i++){
 		for(int j = i; j > 0 && arr[j] < arr[j - 1]; j--){
+			paso++;
 			swap(arr, j, j - 1);
 		}
 	}
+	return paso;
 }
 
 // =================================================================
@@ -36,12 +40,15 @@ void insertionSort(T *arr, int size) {
 // @param A, a vector of T elements.
 // =================================================================
 template <class T>
-void insertionSort(std::vector<T> &v) {
+int insertionSort(std::vector<T> &v) {
+	int paso=0;
 	for(int i = 1; i < v.size(); i++){
 		for(int j = i; j > 0 && v[j] < v[j - 1]; j--){
 			swap(v, j, j - 1);
+			paso++;
 		}
 	}
+	return paso;
 }
 
 #endif /* INSERTION_H */
